@@ -426,21 +426,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
     var ConclusaoComponent = /*#__PURE__*/function () {
-      function ConclusaoComponent(router) {
+      function ConclusaoComponent(router, route) {
         _classCallCheck(this, ConclusaoComponent);
 
         this.router = router;
+        this.route = route;
       }
 
       _createClass(ConclusaoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var navigation = this.router.getCurrentNavigation();
-          var state = navigation === null || navigation === void 0 ? void 0 : navigation.extras.state;
-          this.valorTotal = parseFloat(sessionStorage.getItem('valorTotal'));
-          this.parcelas = parseFloat(sessionStorage.getItem('parcelas'));
-          this.valorParcela = parseFloat(sessionStorage.getItem('valorParcela'));
-          this.valorEmprestimo = parseFloat(sessionStorage.getItem('valorEmprestimo'));
+          var _this = this;
+
+          this.route.queryParams.subscribe(function (params) {
+            _this.valorTotal = params['valorTotal'];
+            _this.parcelas = params['parcelas'];
+            _this.valorParcela = params['valorParcela'];
+            _this.valorEmprestimo = params['valorEmprestimo'];
+          });
         }
       }, {
         key: "voltar",
@@ -453,7 +456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     ConclusaoComponent.ɵfac = function ConclusaoComponent_Factory(t) {
-      return new (t || ConclusaoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]));
+      return new (t || ConclusaoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]));
     };
 
     ConclusaoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -527,7 +530,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
       directives: [_angular_material_button__WEBPACK_IMPORTED_MODULE_2__["MatButton"]],
       pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]],
-      styles: [".conclusao[_ngcontent-%COMP%] {\n  width: 30%;\n  display: flex;\n  margin: 20px auto 20px auto;\n  justify-content: center;\n  flex-direction: column;\n  text-align: center;\n  border-radius: 10px;\n  border: 2px solid #00ff2a;\n  box-shadow: 0 0 10px #51ff00;\n  padding: 10px;\n}\n\n.conclusao[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin: 10px auto 10px;\n}\n\np[_ngcontent-%COMP%] {\n  text-align: left;\n}\n\n@media only screen and (max-width: 767px) {\n  .conclusao[_ngcontent-%COMP%] {\n    display: flex;\n    width: 60%;\n    height: auto;\n    margin: 20px auto 20px auto;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    border-radius: 10px;\n    border: 2px solid #00ff2a;\n    box-shadow: 0 0 10px #51ff00;\n    padding: 10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29uY2x1c2FvL0M6XFxVc2Vyc1xcR3VzdGF2b1xcRGVza3RvcFxcU2ltdWxhZG9yXFxGRURcXFNpbXVsYWRvckVtcHJlc3RpbW9zXFxTaW11bGFkb3JFbXByZXN0aW1vRkVEL3NyY1xcYXBwXFxjb25jbHVzYW9cXGNvbmNsdXNhby5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29uY2x1c2FvL2NvbmNsdXNhby5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxhQUFBO0VBQ0EsMkJBQUE7RUFDQSx1QkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0EsNEJBQUE7RUFDQSxhQUFBO0FDQ0o7O0FERUE7RUFDSSxzQkFBQTtBQ0NKOztBREVBO0VBQ0ksZ0JBQUE7QUNDSjs7QURFQTtFQUNJO0lBQ0ksYUFBQTtJQUNBLFVBQUE7SUFDQSxZQUFBO0lBQ0EsMkJBQUE7SUFDQSx1QkFBQTtJQUNBLHNCQUFBO0lBQ0Esa0JBQUE7SUFDQSxtQkFBQTtJQUNBLHlCQUFBO0lBQ0EsNEJBQUE7SUFDQSxhQUFBO0VDQ047QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbmNsdXNhby9jb25jbHVzYW8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29uY2x1c2FvIHtcclxuICAgIHdpZHRoOiAzMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgbWFyZ2luOiAyMHB4IGF1dG8gMjBweCBhdXRvO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICMwMGZmMmE7XHJcbiAgICBib3gtc2hhZG93OiAwIDAgMTBweCByZ2IoODEsIDI1NSwgMCk7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4uY29uY2x1c2FvIGJ1dHRvbiB7XHJcbiAgICBtYXJnaW46IDEwcHggYXV0byAxMHB4O1xyXG59XHJcblxyXG5wIHtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbn1cclxuXHJcbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY3cHgpIHtcclxuICAgIC5jb25jbHVzYW8ge1xyXG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAgd2lkdGg6IDYwJTtcclxuICAgICAgICBoZWlnaHQ6IGF1dG87XHJcbiAgICAgICAgbWFyZ2luOiAyMHB4IGF1dG8gMjBweCBhdXRvO1xyXG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICAgICAgYm9yZGVyOiAycHggc29saWQgIzAwZmYyYTtcclxuICAgICAgICBib3gtc2hhZG93OiAwIDAgMTBweCByZ2IoODEsIDI1NSwgMCk7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgIH1cclxufSIsIi5jb25jbHVzYW8ge1xuICB3aWR0aDogMzAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW46IDIwcHggYXV0byAyMHB4IGF1dG87XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gIGJvcmRlcjogMnB4IHNvbGlkICMwMGZmMmE7XG4gIGJveC1zaGFkb3c6IDAgMCAxMHB4ICM1MWZmMDA7XG4gIHBhZGRpbmc6IDEwcHg7XG59XG5cbi5jb25jbHVzYW8gYnV0dG9uIHtcbiAgbWFyZ2luOiAxMHB4IGF1dG8gMTBweDtcbn1cblxucCB7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY3cHgpIHtcbiAgLmNvbmNsdXNhbyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICB3aWR0aDogNjAlO1xuICAgIGhlaWdodDogYXV0bztcbiAgICBtYXJnaW46IDIwcHggYXV0byAyMHB4IGF1dG87XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMDBmZjJhO1xuICAgIGJveC1zaGFkb3c6IDAgMCAxMHB4ICM1MWZmMDA7XG4gICAgcGFkZGluZzogMTBweDtcbiAgfVxufSJdfQ== */"]
+      styles: [".conclusao[_ngcontent-%COMP%] {\n  width: 30%;\n  display: flex;\n  margin: 20px auto 20px auto;\n  justify-content: center;\n  flex-direction: column;\n  text-align: center;\n  border-radius: 10px;\n  border: 2px solid #ffa600;\n  box-shadow: 0 0 10px #ffc400;\n  padding: 10px;\n}\n\n.conclusao[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin: 10px auto 10px;\n}\n\np[_ngcontent-%COMP%] {\n  text-align: left;\n}\n\n@media only screen and (max-width: 767px) {\n  .conclusao[_ngcontent-%COMP%] {\n    display: flex;\n    width: 60%;\n    height: auto;\n    margin: 20px auto 20px auto;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    border-radius: 10px;\n    border: 2px solid #00ff2a;\n    box-shadow: 0 0 10px #51ff00;\n    padding: 10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29uY2x1c2FvL0M6XFxVc2Vyc1xcR3VzdGF2b1xcRGVza3RvcFxcU2ltdWxhZG9yXFxGRURcXFNpbXVsYWRvckVtcHJlc3RpbW9zXFxTaW11bGFkb3JFbXByZXN0aW1vRkVEL3NyY1xcYXBwXFxjb25jbHVzYW9cXGNvbmNsdXNhby5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29uY2x1c2FvL2NvbmNsdXNhby5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxhQUFBO0VBQ0EsMkJBQUE7RUFDQSx1QkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0EsNEJBQUE7RUFDQSxhQUFBO0FDQ0o7O0FERUE7RUFDSSxzQkFBQTtBQ0NKOztBREVBO0VBQ0ksZ0JBQUE7QUNDSjs7QURFQTtFQUNJO0lBQ0ksYUFBQTtJQUNBLFVBQUE7SUFDQSxZQUFBO0lBQ0EsMkJBQUE7SUFDQSx1QkFBQTtJQUNBLHNCQUFBO0lBQ0Esa0JBQUE7SUFDQSxtQkFBQTtJQUNBLHlCQUFBO0lBQ0EsNEJBQUE7SUFDQSxhQUFBO0VDQ047QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbmNsdXNhby9jb25jbHVzYW8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29uY2x1c2FvIHtcclxuICAgIHdpZHRoOiAzMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgbWFyZ2luOiAyMHB4IGF1dG8gMjBweCBhdXRvO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICNmZmE2MDA7XHJcbiAgICBib3gtc2hhZG93OiAwIDAgMTBweCByZ2IoMjU1LCAxOTYsIDApO1xyXG4gICAgcGFkZGluZzogMTBweDtcclxufVxyXG5cclxuLmNvbmNsdXNhbyBidXR0b24ge1xyXG4gICAgbWFyZ2luOiAxMHB4IGF1dG8gMTBweDtcclxufVxyXG5cclxucCB7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2N3B4KSB7XHJcbiAgICAuY29uY2x1c2FvIHtcclxuICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgIHdpZHRoOiA2MCU7XHJcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgICAgIG1hcmdpbjogMjBweCBhdXRvIDIwcHggYXV0bztcclxuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgICAgIGJvcmRlcjogMnB4IHNvbGlkICMwMGZmMmE7XHJcbiAgICAgICAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiKDgxLCAyNTUsIDApO1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICB9XHJcbn0iLCIuY29uY2x1c2FvIHtcbiAgd2lkdGg6IDMwJTtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luOiAyMHB4IGF1dG8gMjBweCBhdXRvO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBib3JkZXI6IDJweCBzb2xpZCAjZmZhNjAwO1xuICBib3gtc2hhZG93OiAwIDAgMTBweCAjZmZjNDAwO1xuICBwYWRkaW5nOiAxMHB4O1xufVxuXG4uY29uY2x1c2FvIGJ1dHRvbiB7XG4gIG1hcmdpbjogMTBweCBhdXRvIDEwcHg7XG59XG5cbnAge1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gIC5jb25jbHVzYW8ge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgd2lkdGg6IDYwJTtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luOiAyMHB4IGF1dG8gMjBweCBhdXRvO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gICAgYm9yZGVyOiAycHggc29saWQgIzAwZmYyYTtcbiAgICBib3gtc2hhZG93OiAwIDAgMTBweCAjNTFmZjAwO1xuICAgIHBhZGRpbmc6IDEwcHg7XG4gIH1cbn0iXX0= */"]
     });
     /*@__PURE__*/
 
@@ -542,6 +545,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }], function () {
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]
         }];
       }, null);
     })();
@@ -817,25 +822,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "submitForm",
         value: function submitForm() {
-          var _this = this;
+          var _this2 = this;
 
           this.formularioService.calcularParcelas(this.formData.valorEmprestimo, this.formData.numeroParcelas).subscribe(function (results) {
-            _this.valorParcela = results.valorParcela;
-            _this.valorTotal = results.valorTotal;
-            _this.parcelas = results.parcelas;
-            _this.confirmar = true;
-            _this.resumo = true;
+            _this2.valorParcela = results.valorParcela;
+            _this2.valorTotal = results.valorTotal;
+            _this2.parcelas = results.parcelas;
+            _this2.confirmar = true;
+            _this2.resumo = true;
           });
         }
       }, {
         key: "confirm",
         value: function confirm() {
-          sessionStorage.setItem('valorTotal', this.valorTotal.toString());
-          sessionStorage.setItem('parcelas', this.parcelas.toString());
-          sessionStorage.setItem('valorParcela', this.valorParcela.toString());
-          sessionStorage.setItem('valorEmprestimo', this.formData.valorEmprestimo.toString());
           sessionStorage.setItem('confirmado', 'true');
-          this.router.navigate(['/conclusao']);
+          var data = {
+            valorTotal: this.valorTotal,
+            parcelas: this.parcelas,
+            valorParcela: this.valorParcela,
+            valorEmprestimo: this.formData.valorEmprestimo
+          };
+          this.router.navigate(['/conclusao'], {
+            queryParams: data
+          });
           this.showPopup = false;
         }
       }, {
@@ -861,8 +870,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: FormularioComponent,
       selectors: [["app-formulario"]],
       decls: 21,
-      vars: 8,
-      consts: [[1, "form", 3, "ngSubmit"], ["form", "ngForm"], [1, "middle"], ["type", "text", "matInput", "", "placeholder", "Digite o seu nome completo", "value", "nome", "id", "nome", "name", "nome", "ngModel", "", "required", "", 3, "ngModel", "ngModelChange"], ["matPrefix", ""], ["type", "number", "matInput", "", "placeholder", "Valor do empr\xE9stimo", "value", "valorEmprestimo", "id", "valorEmprestimo", "name", "valorEmprestimo", "ngModel", "", "required", "", 3, "ngModel", "ngModelChange"], ["type", "text", "matInput", "", "placeholder", "Quantidade de parcelas", "id", "numeroParcelas", "name", "numeroParcelas", "ngModel", "", "required", "", 3, "value", "ngModel", "ngModelChange"], ["mat-raised-button", "", "color", "warn", "type", "submit", 3, "disabled"], ["class", "resumo", 4, "ngIf"], ["class", "popup", 4, "ngIf"], ["mat-raised-button", "", "color", "warn", 3, "disabled", "click", 4, "ngIf"], [1, "resumo"], [1, "popup"], ["mat-raised-button", "", "color", "warn", 3, "click"], ["mat-stroked-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "disabled", "click"]],
+      vars: 10,
+      consts: [[1, "form", 3, "ngSubmit"], ["form", "ngForm"], [1, "middle"], ["type", "text", "matInput", "", "placeholder", "Digite o seu nome completo", "value", "nome", "id", "nome", "name", "nome", "ngModel", "", "required", "", 3, "ngModel", "ngModelChange"], ["matPrefix", ""], ["type", "number", "matInput", "", "placeholder", "Valor do empr\xE9stimo", "value", "valorEmprestimo", "id", "valorEmprestimo", "name", "valorEmprestimo", "ngModel", "", "required", "", 3, "min", "ngModel", "ngModelChange"], ["type", "text", "matInput", "", "placeholder", "Quantidade de parcelas", "id", "numeroParcelas", "name", "numeroParcelas", "ngModel", "", "required", "", 3, "value", "min", "ngModel", "ngModelChange"], ["mat-raised-button", "", "color", "warn", "type", "submit", 3, "disabled"], ["class", "resumo", 4, "ngIf"], ["class", "popup", 4, "ngIf"], ["mat-raised-button", "", "color", "warn", 3, "disabled", "click", 4, "ngIf"], [1, "resumo"], [1, "popup"], ["mat-raised-button", "", "color", "warn", 3, "click"], ["mat-stroked-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", "color", "warn", 3, "disabled", "click"]],
       template: function FormularioComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0, 1);
@@ -955,15 +964,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.formData.valorEmprestimo);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("min", 1)("ngModel", ctx.formData.valorEmprestimo);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx.formData.numeroParcelas)("ngModel", ctx.formData.numeroParcelas);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", ctx.formData.numeroParcelas)("min", 1)("ngModel", ctx.formData.numeroParcelas);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !_r0.valid);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !_r0.valid || ctx.formData.valorEmprestimo == 0 || ctx.formData.numeroParcelas == 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
